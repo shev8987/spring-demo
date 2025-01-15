@@ -62,13 +62,19 @@
             <artifactId>junit-jupiter</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- JPA
+        <!-- TX-Manager -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-tx</artifactId>
+            <version>6.2.1</version>
+        </dependency>
+        <!-- JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
-         -->
-        <!-- Hibernate
+
+        <!-- Hibernate  -->
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -79,14 +85,12 @@
             <artifactId>hibernate-entitymanager</artifactId>
             <version>5.6.15.Final</version>
         </dependency>
-         -->
-        <!-- POSGRESQL
+        <!-- POSGRESQL -->
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
-         -->
         <!-- Hadoop -->
         <dependency>
             <groupId>org.apache.hadoop</groupId>
