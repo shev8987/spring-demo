@@ -1,3 +1,4 @@
+/*
 package com.shev8987.spring.demo.services.hbase.repository;
 
 import com.shev8987.spring.demo.services.hbase.config.HBaseConfig;
@@ -101,3 +102,4 @@ public class HbaseRepositoryImpl implements HbaseRepository {
 
     }
 }
+*/

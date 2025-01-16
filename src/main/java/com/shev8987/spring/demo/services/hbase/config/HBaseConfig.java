@@ -1,3 +1,4 @@
+/*
 package com.shev8987.spring.demo.services.hbase.config;
 
 import org.apache.hadoop.conf.Configuration;
@@ -33,3 +34,4 @@ public abstract class HBaseConfig {
         return ConnectionFactory.createConnection(config);
     }
 }
+*/
