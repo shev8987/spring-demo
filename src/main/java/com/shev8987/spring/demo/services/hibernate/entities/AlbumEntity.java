@@ -1,7 +1,9 @@
 package com.shev8987.spring.demo.services.hibernate.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
+import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -33,8 +35,9 @@ public class AlbumEntity {
     @Column(name = "version", nullable = false)
     private Integer version;
 
-    @ManyToOne
-    @JoinColumn(name = "singer_id")
-    private SingerEntity singerEntity;
+    //@ManyToOne
+   // @JoinColumn(name = "singer_id")
+   // @JsonIgnore
+    //private SingerEntity singerEntity;
 
 }
