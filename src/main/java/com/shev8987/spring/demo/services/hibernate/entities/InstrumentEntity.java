@@ -6,12 +6,14 @@ import jakarta.persistence.Id;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Entity
 @Table(name = "instrument")
 @Data
-public class InstrumentEntity {
+public class InstrumentEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_instrument")
@@ -22,9 +24,9 @@ public class InstrumentEntity {
     @Column(name = "instrument_name", nullable = false)
     private String instrumentName;
 
-   // @ManyToMany
-   // @JoinTable(name = "singer_instrument",
-   // joinColumns = @JoinColumn(name = "instrument_id"),
-   // inverseJoinColumns = @JoinColumn(name = "singer_id"))
-  //  private Set<SingerEntity> singerEntities;
+    @ManyToMany
+    @JoinTable(name = "singer_instrument",
+    joinColumns = @JoinColumn(name = "instrument_id"),
+    inverseJoinColumns = @JoinColumn(name = "singer_id"))
+    private List<SingerEntity> singerEntities;
 }
