@@ -11,17 +11,17 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "singer")
 @Getter
 @Setter
+@NamedEntityGraph(name = "SingerEntity.albums", attributeNodes = @NamedAttributeNode("albums"))
 public class SingerEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_singer")
-    @SequenceGenerator(name = "seq_singer", sequenceName = "seq_singer", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_singer_seq")
+    @SequenceGenerator(name = "seq_singer_seq", sequenceName = "seq_singer", allocationSize = 1)
     @Column(name = "id", nullable = false)
     private Long id;
 
@@ -38,13 +38,26 @@ public class SingerEntity implements Serializable {
     @Column(name = "version", nullable = false)
     private Integer version;
 
-    @OneToMany(mappedBy = "singer")
+    @OneToMany(mappedBy = "singer",
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.LAZY)
     @JsonIgnore
     private List<AlbumEntity> albums;
 
     @ManyToMany
     @JoinTable(name = "singer_instrument", joinColumns = @JoinColumn(name = "singer_id"),
-    inverseJoinColumns = @JoinColumn(name = "instrument_id"))
+            inverseJoinColumns = @JoinColumn(name = "instrument_id"))
+    @JsonIgnore
     private List<InstrumentEntity> instruments;
 
+
+    public boolean addAlbum(AlbumEntity album) {
+        album.setSinger(this);
+        return getAlbums().add(album);
+    }
+
+    public void removeAlbum(AlbumEntity album) {
+        getAlbums().remove(album);
+    }
 }

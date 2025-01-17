@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -18,6 +19,10 @@ public class HibernateService {
     @Transactional(readOnly = true)
     public List<SingerEntity> getSingerList() {
 
-        return  singerRepository.getSingerList();
+       // var a = singerRepository.getSingerEntityById(1L);
+        // var a = singerRepository.findAll();
+         var a = singerRepository.getAllById(1L);
+
+        return new ArrayList<>();
     }
 }

@@ -13,15 +13,15 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Entity
+@Entity(name = "album")
 @Table(name = "album")
 @Getter
 @Setter
 public class AlbumEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_album")
-    @SequenceGenerator(name = "seq_album", sequenceName = "seq_album", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_album_seq")
+    @SequenceGenerator(name = "seq_album_seq", sequenceName = "seq_album", allocationSize = 1)
     @Column(name = "id", nullable = false)
     private Long id;
 

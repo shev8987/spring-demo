@@ -3,21 +3,22 @@ package com.shev8987.spring.demo.services.hibernate.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 @Table(name = "instrument")
-@Data
+@Getter
+@Setter
 public class InstrumentEntity implements Serializable {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_instrument")
-    @SequenceGenerator(name = "seq_instrument", sequenceName = "seq_instrument", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_instrument_seq")
+    @SequenceGenerator(name = "seq_instrument_seq", sequenceName = "seq_instrument", allocationSize = 1)
     @Column(name = "id", nullable = false)
     private Long id;
 
