@@ -19,10 +19,8 @@ public class HibernateService {
     @Transactional(readOnly = true)
     public List<SingerEntity> getSingerList() {
 
-       // var a = singerRepository.getSingerEntityById(1L);
-        // var a = singerRepository.findAll();
-         var a = singerRepository.getAllById(1L);
+       var a = singerRepository.findAll();
 
-        return new ArrayList<>();
+       return new ArrayList<>();
     }
 }

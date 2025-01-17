@@ -1,19 +1,20 @@
 package com.shev8987.spring.demo.services.hibernate.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
+import lombok.*;
 
-import javax.persistence.*;
+
 import java.io.Serializable;
 import java.util.List;
 
+@Builder
 @Entity
 @Table(name = "instrument")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class InstrumentEntity implements Serializable {
 
     @Id
@@ -29,5 +30,6 @@ public class InstrumentEntity implements Serializable {
     @JoinTable(name = "singer_instrument",
     joinColumns = @JoinColumn(name = "instrument_id"),
     inverseJoinColumns = @JoinColumn(name = "singer_id"))
+    @JsonIgnore
     private List<SingerEntity> singerEntities;
 }

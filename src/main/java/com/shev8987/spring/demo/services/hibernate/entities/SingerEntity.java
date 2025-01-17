@@ -1,22 +1,20 @@
 package com.shev8987.spring.demo.services.hibernate.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
-@Table(name = "singer")
 @Getter
 @Setter
-@NamedEntityGraph(name = "SingerEntity.albums", attributeNodes = @NamedAttributeNode("albums"))
+@Entity
+@Table(name = "singer")
+@NoArgsConstructor
+@AllArgsConstructor
+//@NamedEntityGraph(name = "SingerEntity.albums", attributeNodes = @NamedAttributeNode("albums"))
 public class SingerEntity implements Serializable {
 
     @Id
@@ -38,17 +36,12 @@ public class SingerEntity implements Serializable {
     @Column(name = "version", nullable = false)
     private Integer version;
 
-    @OneToMany(mappedBy = "singer",
-            cascade = CascadeType.ALL,
-            orphanRemoval = true,
-            fetch = FetchType.LAZY)
-    @JsonIgnore
+    @OneToMany(mappedBy = "singer", cascade = jakarta.persistence.CascadeType.ALL)
     private List<AlbumEntity> albums;
 
     @ManyToMany
     @JoinTable(name = "singer_instrument", joinColumns = @JoinColumn(name = "singer_id"),
             inverseJoinColumns = @JoinColumn(name = "instrument_id"))
-    @JsonIgnore
     private List<InstrumentEntity> instruments;
 
 

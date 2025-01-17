@@ -1,22 +1,19 @@
 package com.shev8987.spring.demo.services.hibernate.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-@Entity(name = "album")
-@Table(name = "album")
+@Builder
 @Getter
 @Setter
+@Entity
+@Table(name = "album")
+@NoArgsConstructor
+@AllArgsConstructor
 public class AlbumEntity implements Serializable {
 
     @Id
@@ -35,7 +32,7 @@ public class AlbumEntity implements Serializable {
     @Column(name = "version", nullable = false)
     private Integer version;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "singer_id", insertable = false, updatable = false)
     @JsonIgnore
     private SingerEntity singer;
