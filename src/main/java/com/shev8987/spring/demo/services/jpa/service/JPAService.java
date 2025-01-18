@@ -1,7 +1,7 @@
-package com.shev8987.spring.demo.services.hibernate.service;
+package com.shev8987.spring.demo.services.jpa.service;
 
-import com.shev8987.spring.demo.services.hibernate.entities.SingerEntity;
-import com.shev8987.spring.demo.services.hibernate.repository.SingerRepository;
+import com.shev8987.spring.demo.services.jpa.entities.SingerEntity;
+import com.shev8987.spring.demo.services.jpa.repository.SingerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class HibernateService {
+public class JPAService {
 
     private final SingerRepository singerRepository;
 

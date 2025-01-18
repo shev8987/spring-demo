@@ -21,17 +21,18 @@
     </properties>
 
     <dependencies>
-        <!-- Spring Security
+        <!-- Spring Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
+            <version>3.1.0</version>
         </dependency>
+        <!-- Spring Web -->
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-test</artifactId>
-            <scope>test</scope>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>3.0.4</version>
         </dependency>
-        -->
         <!--
         <dependency>
             <groupId>ch.qos.logback</groupId>

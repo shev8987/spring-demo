@@ -1,6 +1,5 @@
-package com.shev8987.spring.demo.services.hibernate.entities;
+package com.shev8987.spring.demo.services.jpa.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 

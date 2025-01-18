@@ -1,6 +1,6 @@
-package com.shev8987.spring.demo.services.hibernate.repository;
+package com.shev8987.spring.demo.services.jpa.repository;
 
-import com.shev8987.spring.demo.services.hibernate.entities.InstrumentEntity;
+import com.shev8987.spring.demo.services.jpa.entities.InstrumentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

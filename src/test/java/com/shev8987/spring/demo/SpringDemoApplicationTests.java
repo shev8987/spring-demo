@@ -1,6 +1,6 @@
 package com.shev8987.spring.demo;
 
-import com.shev8987.spring.demo.services.hibernate.service.HibernateService;
+import com.shev8987.spring.demo.services.jpa.service.JPAService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,18 +12,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 class SpringDemoApplicationTests {
 
     @Autowired
-    private HibernateService hibernateService;
+    private JPAService jpaService;
 
     @Test
     void checkSingerList() {
 
-        var singerList = hibernateService.getSingerById();
+        var singerList = jpaService.getSingerById();
     }
 
     @Test
     void checkSingerById() {
 
-        var singer = hibernateService.getSingerById(1L);
+        var singer = jpaService.getSingerById(1L);
     }
 
 }

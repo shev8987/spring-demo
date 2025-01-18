@@ -1,17 +1,9 @@
-package com.shev8987.spring.demo.services.hibernate.dto;
+package com.shev8987.spring.demo.services.jpa.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.shev8987.spring.demo.services.hibernate.entities.AlbumEntity;
-import com.shev8987.spring.demo.services.hibernate.entities.InstrumentEntity;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import com.shev8987.spring.demo.services.jpa.entities.AlbumEntity;
+import com.shev8987.spring.demo.services.jpa.entities.InstrumentEntity;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
-import javax.persistence.*;
-import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.List;
 
