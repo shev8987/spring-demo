@@ -16,18 +16,15 @@ public class JPAService {
     private final SingerRepository singerRepository;
 
     @Transactional(readOnly = true)
-    public List<SingerEntity> getSingerById() {
+    public List<SingerEntity> getSingerFullList() {
 
-       var a = singerRepository.findAll();
-
-       return new ArrayList<>();
+       return  singerRepository.findAll();
     }
 
     @Transactional(readOnly = true)
     public SingerEntity getSingerById(Long id) {
 
-        var a = singerRepository.findById(id);
+        return singerRepository.findById(id).get();
 
-        return a.get();
     }
 }

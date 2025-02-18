@@ -17,7 +17,7 @@ class SpringDemoApplicationTests {
     @Test
     void checkSingerList() {
 
-        var singerList = jpaService.getSingerById();
+        var singerList = jpaService.getSingerFullList();
     }
 
     @Test
