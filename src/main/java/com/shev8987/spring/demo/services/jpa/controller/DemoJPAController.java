@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/demo")
+@RequestMapping("api/demo")
 @RequiredArgsConstructor
 public class DemoJPAController {
 
@@ -30,16 +30,16 @@ public class DemoJPAController {
         return jpaService.getSingerById(id);
     }
 
-    @PostMapping
+    @PostMapping("save/singer")
     @PreAuthorize("hasRole('ADMIN')")
-    void saveSinger(SingerEntity singer) {
+    void saveSinger(@RequestBody SingerEntity singer) {
         jpaService.save(singer);
     }
 
 
     @GetMapping("delete/singer/{id}")
     @PreAuthorize("hasRole('ADMIN')")
-    void deleteSinger(Long id) {
+    void deleteSinger(@PathVariable Long id) {
         jpaService.deleteSinger(id);
     }
 }

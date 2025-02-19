@@ -30,7 +30,7 @@ public class JPAService {
     }
 
     @Transactional
-    public void save(@RequestBody SingerEntity singerEntity) {
+    public void save(SingerEntity singerEntity) {
 
         if (Objects.isNull(singerEntity.getId())) {
             singerRepository.saveAndFlush(singerEntity);
@@ -48,12 +48,12 @@ public class JPAService {
     @Transactional
     public void deleteSinger(Long id) {
 
-        var entity = singerRepository.findById(id).get();
-        if (Objects.isNull(entity)) {
+        var entity = singerRepository.findById(id);
+        if (entity.isEmpty()) {
             return;
         }
 
-        singerRepository.delete(entity);
+        singerRepository.delete(entity.get());
     }
 
 }

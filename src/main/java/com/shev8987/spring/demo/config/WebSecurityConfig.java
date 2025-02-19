@@ -33,9 +33,11 @@ public class WebSecurityConfig {
 
         http.sessionManagement((sessionManagement) -> sessionManagement
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS));
+        http.cors().disable();
+        http.csrf().disable();
         http.authorizeHttpRequests(
                         (authorizeRequest) -> authorizeRequest
-                                .requestMatchers("/").permitAll()
+                                .requestMatchers("/**").permitAll()
                                 .anyRequest()
                                 .authenticated()
                          ).httpBasic(Customizer.withDefaults());
