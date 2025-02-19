@@ -30,21 +30,16 @@ public class DemoJPAController {
         return jpaService.getSingerById(id);
     }
 
-/*    @PostMapping
+    @PostMapping
     @PreAuthorize("hasRole('ADMIN')")
-    void createSinger(SingerDto singerDto) {
-
+    void saveSinger(SingerEntity singer) {
+        jpaService.save(singer);
     }
 
-    @PutMapping
-    @PreAuthorize("hasRole('ADMIN')")
-    void updateSinger(SingerDto singerDto) {
-
-    }*/
 
     @GetMapping("delete/singer/{id}")
     @PreAuthorize("hasRole('ADMIN')")
     void deleteSinger(Long id) {
-
+        jpaService.deleteSinger(id);
     }
 }
