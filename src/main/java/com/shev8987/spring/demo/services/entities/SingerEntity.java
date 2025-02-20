@@ -1,4 +1,4 @@
-package com.shev8987.spring.demo.services.jpa.entities;
+package com.shev8987.spring.demo.services.entities;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -9,11 +9,12 @@ import java.util.List;
 
 @Getter
 @Setter
+@Builder
 @Entity
 @Table(name = "singer")
 @NoArgsConstructor
 @AllArgsConstructor
-//@NamedEntityGraph(name = "SingerEntity.albums", attributeNodes = @NamedAttributeNode("albums"))
+@NamedEntityGraph(name = "SingerEntity.albums", attributeNodes = @NamedAttributeNode("albums"))
 public class SingerEntity implements Serializable {
 
     @Id

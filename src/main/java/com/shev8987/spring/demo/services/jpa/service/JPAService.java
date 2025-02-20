@@ -1,11 +1,11 @@
 package com.shev8987.spring.demo.services.jpa.service;
 
-import com.shev8987.spring.demo.services.jpa.entities.SingerEntity;
+
+import com.shev8987.spring.demo.services.entities.SingerEntity;
 import com.shev8987.spring.demo.services.jpa.repository.SingerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Objects;

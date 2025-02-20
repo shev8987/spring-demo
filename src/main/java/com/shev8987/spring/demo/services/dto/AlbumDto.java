@@ -1,6 +1,5 @@
-package com.shev8987.spring.demo.services.jpa.dto;
+package com.shev8987.spring.demo.services.dto;
 
-import com.shev8987.spring.demo.services.jpa.entities.SingerEntity;
 import lombok.Data;
 
 import java.time.LocalDate;

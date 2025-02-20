@@ -1,4 +1,4 @@
-package com.shev8987.spring.demo.services.jpa.entities;
+package com.shev8987.spring.demo.services.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;

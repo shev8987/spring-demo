@@ -1,7 +1,6 @@
 package com.shev8987.spring.demo.services.jpa.controller;
 
-import com.shev8987.spring.demo.services.jpa.dto.SingerDto;
-import com.shev8987.spring.demo.services.jpa.entities.SingerEntity;
+import com.shev8987.spring.demo.services.entities.SingerEntity;
 import com.shev8987.spring.demo.services.jpa.service.JPAService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
