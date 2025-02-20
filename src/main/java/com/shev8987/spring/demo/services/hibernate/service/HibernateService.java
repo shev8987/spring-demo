@@ -96,6 +96,8 @@ public class HibernateService {
 
         session.delete(result);
 
+        logger.info("Entity deleted with id:" + id);
+
         session.getTransaction().commit();
     }
 
