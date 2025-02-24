@@ -56,6 +56,8 @@ public class HibernateService {
         if (Objects.isNull(singerEntity.getId())) {
             var entity = session.save(singerEntity);
             logger.info("Entity saved with id:" + entity);
+            session.getTransaction().commit();
+
         } else {
 
             var id = singerEntity.getId();
@@ -70,12 +72,10 @@ public class HibernateService {
             }
 
             session.saveOrUpdate(singerEntity);
+            session.getTransaction().commit();
 
             logger.info("Entity updated with id:" + id);
         }
-
-        session.getTransaction().commit();
-
     }
 
     @Transactional
