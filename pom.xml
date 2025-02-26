@@ -104,14 +104,19 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!-- Hadoop
+        <!-- Hadoop -->
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-common</artifactId>
             <version>${hadoop.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        -->
-        <!-- HBase
+        <!-- HBase-->
         <dependency>
             <groupId>org.apache.hbase</groupId>
             <artifactId>hbase-client</artifactId>
@@ -123,7 +128,6 @@
             <version>${hbase.version}</version>
             <type>pom</type>
         </dependency>
-         -->
         <!-- mupstruct -->
         <dependency>
             <groupId>org.mapstruct</groupId>

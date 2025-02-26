@@ -6,9 +6,11 @@ import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
 import org.apache.hadoop.hbase.client.HBaseAdmin;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 
+@Service
 public abstract class HBaseConfig {
 
     public static final String HBASE_ZOOKEEPER_QUORUM_PARAM = "hbase.zookeeper.quorum";
@@ -34,4 +36,5 @@ public abstract class HBaseConfig {
         return ConnectionFactory.createConnection(config);
     }
 }
+
 */

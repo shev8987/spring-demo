@@ -1,22 +1,25 @@
 package com.shev8987.spring.demo.services.hbase.service;
 
 
-import com.shev8987.spring.demo.dto.hbase.TableRequestDto;
+import com.shev8987.spring.demo.services.hbase.dto.TableRequestDto;
+import org.apache.hadoop.hbase.client.Table;
 import org.springframework.stereotype.Service;
 
-import java.io.IOException;
+import java.util.Map;
 
 @Service
 public interface HbaseService {
 
-    void createTable(TableRequestDto dto);
+    Table createTable(TableRequestDto dto);
 
-    void getById() throws IOException;
+    void addColumns(TableRequestDto dto);
 
-    void getAll() throws IOException;
+    void getById();
+
+    Map<String, String> getAll(String tableName, String rowKey, String columnFamily);
 
     void update(TableRequestDto dto);
 
-    void delete() throws IOException;
+    void delete();
 
 }

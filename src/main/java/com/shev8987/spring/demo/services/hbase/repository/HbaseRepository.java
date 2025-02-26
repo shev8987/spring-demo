@@ -1,20 +1,21 @@
 package com.shev8987.spring.demo.services.hbase.repository;
 
 import com.shev8987.spring.demo.services.hbase.entities.TableEntity;
-import org.springframework.stereotype.Repository;
+import org.apache.hadoop.hbase.client.Table;
 
-import java.io.IOException;
+import java.util.Map;
 
-@Repository
 public interface HbaseRepository {
 
-    void createTable(TableEntity table) throws IOException;
+    Table createTable(TableEntity table);
 
-    void getById() throws IOException;
+    void addColumns(TableEntity entity);
 
-    void getAll() throws IOException;
+    void getById(String tableName, String rowKey, String columnFamily, String column);
 
-    void update(TableEntity table) throws IOException;
+    Map<String, String> getAll(String tableName, String rowKey, String columnFamily);
 
-    void delete() throws IOException;
+    void update(TableEntity table);
+
+    void delete(String tableName);
 }

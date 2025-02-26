@@ -2,8 +2,7 @@ package com.shev8987.spring.demo.services.hibernate.service;
 
 import com.shev8987.spring.demo.services.entities.SingerEntity;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -11,11 +10,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Objects;
 
+@Slf4j
 @Repository
 @RequiredArgsConstructor
 public class HibernateService {
 
-    private static final Log logger = LogFactory.getLog(HibernateService.class);
 
     private final SessionFactory sessionFactory;
 
@@ -27,7 +26,8 @@ public class HibernateService {
         session.beginTransaction();
         var result = session.createQuery("from SingerEntity s").list();
         session.getTransaction().commit();
-        logger.info(result.toString());
+
+        log.info(result.toString());
         return result;
     }
 
@@ -41,7 +41,7 @@ public class HibernateService {
                 .setParameter("id", id)
                 .uniqueResult();
         session.getTransaction().commit();
-        logger.info(result.toString());
+        log.info(result.toString());
 
         return result;
 
@@ -55,7 +55,7 @@ public class HibernateService {
 
         if (Objects.isNull(singerEntity.getId())) {
             var entity = session.save(singerEntity);
-            logger.info("Entity saved with id:" + entity);
+            log.info("Entity saved with id:" + entity);
             session.getTransaction().commit();
 
         } else {
@@ -67,14 +67,14 @@ public class HibernateService {
                     .uniqueResult();
 
             if (Objects.isNull(result)) {
-                logger.info("Entity not found with id:" + singerEntity.getId());
+                log.info("Entity not found with id:" + singerEntity.getId());
                 return;
             }
 
             session.saveOrUpdate(singerEntity);
             session.getTransaction().commit();
 
-            logger.info("Entity updated with id:" + id);
+            log.info("Entity updated with id:" + id);
         }
     }
 
@@ -90,13 +90,13 @@ public class HibernateService {
                 .uniqueResult();
 
         if (Objects.isNull(result)) {
-            logger.info("Entity not found with id:" + id);
+            log.info("Entity not found with id:" + id);
             return;
         }
 
         session.delete(result);
 
-        logger.info("Entity deleted with id:" + id);
+        log.info("Entity deleted with id:" + id);
 
         session.getTransaction().commit();
     }

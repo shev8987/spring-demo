@@ -1,4 +1,4 @@
-package com.shev8987.spring.demo.dto.hbase;
+package com.shev8987.spring.demo.services.hbase.dto;
 
 import lombok.Getter;
 import lombok.Setter;

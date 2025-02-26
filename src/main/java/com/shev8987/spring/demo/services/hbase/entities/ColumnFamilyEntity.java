@@ -1,5 +1,6 @@
 package com.shev8987.spring.demo.services.hbase.entities;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,6 +8,7 @@ import java.util.Map;
 
 @Getter
 @Setter
+@Builder
 public class ColumnFamilyEntity {
 
     /**
